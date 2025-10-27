@@ -3,7 +3,8 @@ from typing import Any, Hashable
 
 class Node:
     def __init__(
-            self, key: str | int | float ,
+            self,
+            key: Hashable ,
             value: Any,
             key_hash: int
     ) -> None:
@@ -72,7 +73,6 @@ class Dictionary:
         bucket = self._table[index]
 
         for node in bucket:
-            # if node.key_hash == key_hash and node.key == key:
             if node.key == key:
                 return node.value
 
